@@ -9,8 +9,8 @@ export class Oscillator extends React.Component {
     this.types = ['sine', 'triangle', 'square'];
 
     this.state = ({
-      frequency: 0,
-      type: 'sine'
+      frequency: 440,
+      type: this.types[0]
     });
 
     this.onSelectWaveForm = this.onSelectWaveForm.bind(this);
@@ -18,9 +18,13 @@ export class Oscillator extends React.Component {
     this.play = this.play.bind(this);
     this.stop = this.stop.bind(this);
   }
+
   play() {
+    this.oscillator = this.audioCtx.createOscillator();
+    this.setState({ 'dummy': Math.random() });
     this.oscillator.start();
   }
+
   stop() {
     this.oscillator.stop();
   }
@@ -34,7 +38,7 @@ export class Oscillator extends React.Component {
     return (<div>
       <div id="input">
         <select onChange={this.onSelectWaveForm}>{this.types.map((t) => this.getOscillatorTypeOption(t))}</select>
-        <input type="number" onChange={this.onChangeFrequency} value={this.state.frequency} min='0' step='10' />
+        <input type="number" onChange={this.onChangeFrequency} value={this.state.frequency} min='0' max='192000' step='10' />
         <button onClick={this.play}>play</button>
         <button onClick={this.stop}>stop</button>
       </div>
@@ -59,7 +63,7 @@ export class Oscillator extends React.Component {
       frequency: event.target.value
     }, this.drawSinus());
   }
-
+  430
   drawSinus() {
     /*
     var c = document.getElementById("myCanvas");
