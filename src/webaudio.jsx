@@ -6,7 +6,7 @@ export default class WebAudio extends React.Component {
     render() {
         vibrator();
         return (<div>
-            <h1>It works</h1>
+            <h1>Sweep that frequency!</h1>
             <Oscillator />
         </div>);
     }
