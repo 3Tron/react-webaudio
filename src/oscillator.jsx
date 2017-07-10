@@ -28,9 +28,11 @@ export class Oscillator extends React.Component {
   stop() {
     this.oscillator.stop();
   }
+
   componentDidMount() {
     this.drawSinus();
   }
+
   render() {
     this.oscillator.type = this.state.type;
     this.oscillator.frequency.value = this.state.frequency;
@@ -63,7 +65,7 @@ export class Oscillator extends React.Component {
       frequency: event.target.value
     }, this.drawSinus());
   }
-  430
+  
   drawSinus() {
     /*
     var c = document.getElementById("myCanvas");
