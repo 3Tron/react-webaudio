@@ -44,7 +44,6 @@ export class Oscillator extends React.Component {
         <button onClick={this.play}>play</button>
         <button onClick={this.stop}>stop</button>
       </div>
-      {/*<div><canvas id="myCanvas" width="256" height="256" /></div>*/}
     </div>);
   }
 
@@ -53,38 +52,14 @@ export class Oscillator extends React.Component {
   }
 
   onSelectWaveForm(event) {
-    //console.log('onSelectWaveForm', event.target.value);
     this.setState({
       type: event.target.value
     });
   }
 
   onChangeFrequency(event) {
-    //console.log('onChangeFrequency', event.target.value);
     this.setState({
       frequency: event.target.value
-    }, this.drawSinus());
+    });
   }
-  
-  drawSinus() {
-    /*
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
-    let width = 256;
-    let height = 256;
-    ctx.clearRect(0, 0, c.width, c.height);
-    for (var x = 0; x < width; x += 20) {
-      ctx.moveTo(x + 5, height / 2);
-      ctx.lineTo(x, height / 2);
-    }
-    ctx.moveTo(0, height / 2);
-    let cycle = (width / 2) / this.state.frequency;
-    for (var x = 0; x <= width / 2; x += 1) {
-      let t = Math.sin(x * Math.PI / cycle);
-      console.log(t);
-      var y = (height / 2) - (t * 120);
-      ctx.lineTo(x, y);
-    }
-    ctx.stroke();
-  */}
 }
